@@ -3,23 +3,23 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class TraectoryRenderer : MonoBehaviour
 {
-    private const int pointCount = 4700;
-    private const float timeStep = 0.001f;
+    private const int pointCount = 46;
+    private const float timeStep = 0.1f;
     private LineRenderer lineRenderer;
 
     private void Awake() => lineRenderer = GetComponent<LineRenderer>();
 
-    public void DrawVacuum(Vector3 startPosition, Vector3 startVelocity)
-    {
-        lineRenderer.positionCount = pointCount;
+    //public void DrawVacuum(Vector3 startPosition, Vector3 startVelocity)
+    //{
+    //    lineRenderer.positionCount = pointCount;
 
-        for (int i = 0; i < pointCount; i++)
-        {
-            float t = i * timeStep;
-            Vector3 newPosition = startPosition + (t * startVelocity) + (Physics.gravity * t * t / 2);
-            lineRenderer.SetPosition(i, newPosition);
-        }
-    }
+    //    for (int i = 0; i < pointCount; i++)
+    //    {
+    //        float t = i * timeStep;
+    //        Vector3 newPosition = startPosition + (t * startVelocity) + (Physics.gravity * t * t / 2);
+    //        lineRenderer.SetPosition(i, newPosition);
+    //    }
+    //}
 
     public void DrawWithAirEuler(Vector3 startPosition, Vector3 startVelocity)
     {
