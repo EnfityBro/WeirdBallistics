@@ -8,14 +8,18 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI hitsCountText;
     [SerializeField] private Toggle RandomMassRadiusToggle;
+    [SerializeField] private Toggle EnableCutToggle;
     [SerializeField] private Slider MuzzleAngleSlider;
     [SerializeField] private Slider DragCoefficientSlider;
     [SerializeField] private Slider AirDensitySlider;
     [SerializeField] private Button WindButton;
+    [SerializeField] private TraectoryRenderer traectoryRenderer;
 
     private void Update() => hitsCountText.text = $"Количество попаданий: {TargetSpawner.instance.hitsCount}";
 
     public void OnRandomMassRadiusToggleChange() => BalisticCalculator.instance.isRandomMassRadius = RandomMassRadiusToggle.isOn;
+
+    public void OnEnableCutToggleChange() => traectoryRenderer.enableTraectoryCut = EnableCutToggle.isOn;
 
     public void OnMuzzleAngleSliderChange() => BalisticCalculator.instance.muzzleAngle = MuzzleAngleSlider.value;
 
