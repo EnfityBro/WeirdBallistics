@@ -27,6 +27,7 @@ public class BalisticCalculator : MonoBehaviour
     {
         instance = this;
         traectoryRenderer = GetComponent<TraectoryRenderer>();
+        area = radius * radius * Mathf.PI;
     }
 
     public void Update()
